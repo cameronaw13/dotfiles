@@ -6,12 +6,12 @@ jobs:
   nix-lints:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v5.0.0
 
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: DeterminateSystems/magic-nix-cache-action@v11
+      - uses: DeterminateSystems/magic-nix-cache-action@v13
 
       - name: "Statix Lint"
         run: nix run nixpkgs#statix -- check .
@@ -21,12 +21,12 @@ jobs:
   nix-checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v5.0.0
     
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: DeterminateSystems/magic-nix-cache-action@v11
+      - uses: DeterminateSystems/magic-nix-cache-action@v13
 
       - name: "SSH private repo auth"
         env:
