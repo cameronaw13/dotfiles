@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # https://github.com/actions/checkout/pull/1707
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v5.0.0
         with:
           ref: master
       - run: |
@@ -39,7 +39,7 @@ jobs:
 
       # https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md
       - id: generate-token
-        uses: actions/create-github-app-token@v2.0.6
+        uses: actions/create-github-app-token@v2.1.1
         with:
           app-id: ${{ secrets.PR_APP_ID }}
           private-key: ${{ secrets.PR_APP_KEY }}
